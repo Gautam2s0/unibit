@@ -38,12 +38,15 @@ function findCombinations(arr, target) {
   return combinations;
 }
 
+// input ***********************************
 const arr = [1, 3, 2, 2, -4, -6, -2, 8];
 const target = 4;
+// **********************************************
+
 
 //   first cobination
 const FirstCombination = findPairs(arr,arr.length, target);
-console.log("Combinations for", target + ":", FirstCombination);
+
 
 //   merging array
 const mergedArr = []
@@ -53,10 +56,12 @@ for(let el of FirstCombination){
 }
 // Sorting merged array
 mergedArr.sort((a,b)=>a-b)
-console.log("Merged array:", mergedArr);
 
 //   double array
 const doubleTarget = target * 2;
 const doubleCombinations = findCombinations(mergedArr, doubleTarget);
 
+// printing values
+console.log("Combinations for", target + ":", FirstCombination);
+console.log("Merged array:", mergedArr);
 console.log("Combinations for", doubleTarget + ":", doubleCombinations);
