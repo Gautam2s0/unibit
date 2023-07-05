@@ -42,11 +42,17 @@ const arr = [1, 3, 2, 2, -4, -6, -2, 8];
 const target = 4;
 
 //   first cobination
-const combinations = findPairs(arr, target);
-console.log("Combinations for", target + ":", combinations);
+const FirstCombination = findPairs(arr,arr.length, target);
+console.log("Combinations for", target + ":", FirstCombination);
 
 //   merging array
-const mergedArr = arr.concat(...combinations).sort((a, b) => a - b);
+const mergedArr = []
+for(let el of FirstCombination){
+    mergedArr.push(el[0])
+    mergedArr.push(el[1])
+}
+// Sorting merged array
+mergedArr.sort((a,b)=>a-b)
 console.log("Merged array:", mergedArr);
 
 //   double array
