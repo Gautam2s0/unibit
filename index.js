@@ -65,3 +65,20 @@ const doubleCombinations = findCombinations(mergedArr, doubleTarget);
 console.log("Combinations for", target + ":", FirstCombination);
 console.log("Merged array:", mergedArr);
 console.log("Combinations for", doubleTarget + ":", doubleCombinations);
+
+
+
+// Time and Space Complexcity
+
+// *****************for findPairs function**********************************
+// findPairs function has an O(n2) time complexity;
+// The space complexity of the findPairs function is O(n)
+// where n is the length of the input array arr. 
+// This is due to the code iterating over all possible sets of element pairs in the array using two nested loops.
+
+// *****************For findCombinations functions********************
+
+// The time complexity of the findCombinations function is O(2^n)
+// The space complexity of the findCombinations function is O(2^n)
+// where n is the length of the input array arr. 
+// This is so that the code may produce every conceivable combination that adds up to the goal value using backtracking.
