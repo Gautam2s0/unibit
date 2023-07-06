@@ -1,17 +1,27 @@
-function findPairs(arr, n, target) {
-    // initially no pairs
-  let ans = [];
-
-  for (let i = 0; i < n; i++) {
-    for (let j = i + 1; j < n; j++) {
-        // sum of two number is equal to target value
-      if (arr[i] + arr[j] == target) {
-        // pushing the pairs in ans array
-        ans.push([arr[i], arr[j]]);
-      }
+function findPairs(arr,n,target){
+  // sorting the input array 
+  arr.sort((a,b)=>a-b)
+  // taking two pointer l & r and one empty ans array
+  let l=0,r=n-1
+  let ans=[]
+  while(l<r){
+    // checking if sum of element of the is equal or not 
+    // if yes the push into ans array 
+    // if  target value is greater than sum of two element then increased the value of l by 1 
+    // if  target value is smaller than sum of two element then decreased the value of r by 1 
+    if(arr[l]+arr[r]===target){
+      ans.push([arr[l],arr[r]])
+      r--
+      l++
+    }
+    else if(arr[l]+arr[r]<target){
+      l++
+    }
+    else{
+      r--
     }
   }
-  return ans;
+  return ans
 }
 
 
@@ -46,8 +56,6 @@ const target = 4;
 
 //   first cobination
 const FirstCombination = findPairs(arr,arr.length, target);
-
-
 //   merging array
 const mergedArr = []
 for(let el of FirstCombination){
@@ -71,14 +79,18 @@ console.log("Combinations for", doubleTarget + ":", doubleCombinations);
 // Time and Space Complexcity
 
 // *****************for findPairs function**********************************
-// findPairs function has an O(n2) time complexity;
-// The space complexity of the findPairs function is O(n)
+// The time complexity of the while loop is O(n).
+// The time complexity of the sort method is O(n log n).
+
+// Overall time complexity = Time complexity of sort method + Time complexity of the while loop  O(n log n) + O(n) = O(n log n)
+// The space complexity  is O(n)
+
 // where n is the length of the input array arr. 
-// This is due to the code iterating over all possible sets of element pairs in the array using two nested loops.
+
 
 // *****************For findCombinations functions********************
 
-// The time complexity of the findCombinations function is O(2^n)
-// The space complexity of the findCombinations function is O(2^n)
+// The time complexity  is O(2^n)
+// The space complexity  is O(2^n)
 // where n is the length of the input array arr. 
-// This is so that the code may produce every conceivable combination that adds up to the goal value using backtracking.
+// This is so that the findCombinations functions may produce every conceivable combination that adds up to the goal value using backtracking.
